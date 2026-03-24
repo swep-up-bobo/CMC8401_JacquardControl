@@ -1,0 +1,23 @@
+# Build directory
+build/
+
+# macOS
+.DS_Store
+*.swp
+*.swo
+
+# Qt
+*.autogen/
+*.autogen.include
+
+# IDE
+.vscode/
+.idea/
+*.pro.user
+
+# CMake
+CMakeLists.txt.user
+
+# Temporary files
+*.tmp
+*.bak
