@@ -14,17 +14,19 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Install Qt6
-      uses: jurplel/qt-action@v3
+      uses: qt-actions/qt-actions@v3
       with:
-        version: 6.10.2
+        version: '6.10.2'
         components: qtbase
-        platforms: windows
 
     - name: Configure CMake
+      shell: bash
       run: |
-        cmake -B build -G "MinGW Makefiles" -DCMAKE_PREFIX_PATH="${{ env.Qt6_DIR }}"
+        cmake -B build -G "MinGW Makefiles" \
+          -DCMAKE_PREFIX_PATH="$Env:LOCALAPPDATA\Qt\Tools\mingw1310_64\lib\cmake"
 
     - name: Build
+      shell: bash
       run: cmake --build build --parallel
 
     - name: Upload Artifact
